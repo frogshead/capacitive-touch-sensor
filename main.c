@@ -101,27 +101,28 @@ int main(void){
 			  step--;
 			  going_up = false;
 			  pwm_width(20 * step);
-                        }			}
+                        }		    
 			else if(step == MIN && going_up == false)
 			{
 			  step++;
 			  going_up = true;
                           pwm_width(20 * step);
-			 }
+			}
 			else if(going_up == true)
 			{
 			  step++;
                           pwm_width(20 * step);
-			 }
+			}
 			else if(going_up == false)
 			{
 			  step--;
                           pwm_width(20 * step);
-			 }
+			}
 			
 			_delay_ms(500);
-	  }
- 
+         }
     }
+ 
+    
     return 0;
 }
