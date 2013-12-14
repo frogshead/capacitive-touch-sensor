@@ -1,10 +1,12 @@
+/*
+*  Capacitive code is copied from:
+* 	http://tuomasnylund.fi/drupal6/content/capacitive-touch-sensing-avr-and-single-adc-pin
+*/
 #include <stdlib.h>
 #include <stdio.h>
 #include <avr/io.h>
-#include <util/delay.h>
 
-// #define F_CPU 1000000UL  // 1 MHz This is defined allreaydy in Makefile
-   
+
 #include <util/delay.h>
 
 #define MAX 5
@@ -99,35 +101,24 @@ int main(void){
 			  step--;
 			  going_up = false;
 			  pwm_width(20 * step);
-                          //analogWrite(PWM_PIN,step*51);
-			  //Serial.println("Maximum Value");
-			}
+                        }			}
 			else if(step == MIN && going_up == false)
 			{
 			  step++;
 			  going_up = true;
                           pwm_width(20 * step);
-			  //analogWrite(PWM_PIN,step*51);
-			  //Serial.println("Minimum Value");
-			}
+			 }
 			else if(going_up == true)
 			{
 			  step++;
                           pwm_width(20 * step);
-			  //analogWrite(PWM_PIN,step*51);
-			  //Serial.println("Going up");
-			}
+			 }
 			else if(going_up == false)
 			{
 			  step--;
                           pwm_width(20 * step);
-			  //analogWrite(PWM_PIN, step*51);
-			  //Serial.println("Going Down");
-			}
-			else
-			{
-			  //Serial.println("Unknown situation");
-			}
+			 }
+			
 			_delay_ms(500);
 	  }
  
